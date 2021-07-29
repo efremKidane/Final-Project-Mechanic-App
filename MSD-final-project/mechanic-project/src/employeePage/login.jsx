@@ -1,6 +1,7 @@
 import React from "react";
 import { Avatar, Button, Grid, Paper, TextField } from "@material-ui/core";
 import LockOutlinedIcon from "@material-ui/icons/LockOpenOutlined";
+import { NavLink } from "react-router-dom"
 import { useState } from "react";
 import axios from "axios";
 import { useContext } from "react";
@@ -34,6 +35,10 @@ const Login = () => {
 
   const avatarStyle = { backgroundColor: "#1bbd7e" };
 
+  const BackHome = () => {
+    user.dispatch({ type: "REQUEST_APPOINTMENT", payload: "home" });
+  };
+
   return (
     <div
       style={{
@@ -43,15 +48,21 @@ const Login = () => {
       <Grid>
         <Grid item xs={12} style={{ background: "#131313" }}>
           <h1 style={{ fontFamily: "fantasy", margin: "10px", color: "#fff" ,padding:"20px"}}>
-            Efi Mechanic Log in to see Appointments Schedule
+            Fairfield Mechanic Log in to see Appointments Schedule
           </h1>
-          <Button
-            variant="outlined"
-            color="primary"
-            style={{ align: "flex-end", padding: "20px", margin: "10px" }}
+          <NavLink
+            to="/"
+            onClick={BackHome}
+            style={{ textDecoration: "none", margin: "10px" }}
           >
-            Back to home page
-          </Button>
+            <Button
+              variant="outlined"
+              color="primary"
+              style={{ align: "flex-end", padding: "20px", margin: "10px" }}
+            >
+              Back to home page
+            </Button>
+          </NavLink>
         </Grid>
         <Paper elevation={10} style={paperStyle}>
           <Grid align="center">

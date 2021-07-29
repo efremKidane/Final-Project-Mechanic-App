@@ -70,7 +70,7 @@ export default function Confirm (props) {
             <p>{value.email}</p>
             <p>{value.phone}</p>
             <h3>Date & Time</h3>
-            <p>{value.date}</p>
+            {/* <p>{value.date}</p> */}
             <p>{value.time}</p>
             <Button variant="outlined" color="primary" onClick={back}>
               Back

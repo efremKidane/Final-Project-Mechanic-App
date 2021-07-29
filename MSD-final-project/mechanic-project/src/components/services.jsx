@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
   },
   papers: {
+    padding: "10px",
     backgroundColor: "black",
   },
   h2: {
@@ -50,7 +51,7 @@ export default function Services() {
   const user = useContext(UserContext);
 
   const changePage = ()=>{
-    user.dispatch({type:"REQUEST_APPOINTMENT", payload: 'appointemet'})
+    user.dispatch({type:"REQUEST_APPOINTMENT", payload: 'appointment'})
   }
 
   return (
@@ -59,8 +60,8 @@ export default function Services() {
         <Grid item xs={12} className={classes.papers}>
           <Paper className={classes.papers}>
             <CssBaseline />
-            <h2 className={classes.h2}>EFI MECHANIC SERVICES</h2>
-            <h3 className={classes.sol}>the efi Mechanic is the new Gold Standard</h3>
+            <h2 className={classes.h2}>FAIRFIELD MECHANIC SERVICES</h2>
+            <h3 className={classes.sol}>The Fairfield Mechanic is the new Gold Standard</h3>
             <NavLink to="/request-appointment" className={classes.link} onClick={changePage}>
               <button className={classes.button}>Request Appointmen</button>
             </NavLink>

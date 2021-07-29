@@ -187,7 +187,7 @@ export const model = {
 
 export const intialState = {
     step: 1,
-    date: null,
+    date: new Date(),
     time: null,
     service: "",
     serviceDescription: "",

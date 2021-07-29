@@ -5,6 +5,7 @@ export const UserContext = createContext();
 export const intialState = {
   homePage: "home",
   token: "",
+  error: false,
 };
 
 export const myReducer = (state = intialState, action) => {
@@ -13,6 +14,8 @@ export const myReducer = (state = intialState, action) => {
       return { ...state, homePage: action.payload };
     case "TOKEN":
       return { ...state, token: action.payload };
+    case "ERROR":
+      return { ...state, error: action.payload };
   }
 };
 

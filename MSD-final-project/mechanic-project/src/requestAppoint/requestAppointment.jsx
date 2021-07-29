@@ -13,7 +13,7 @@ import Success from "./success";
 
 export default function RequestApp() {
   const [state, setState] = useState(intialState);
-  const[error, setError] = useState()
+  const [error, setError] = useState(false);
 
   //Proceed to next step
   const nextStep = () => {
@@ -27,23 +27,26 @@ export default function RequestApp() {
 
   //handle field change
   const handleChange = (input) => (e) => {
-
     setState({ ...state, [input]: e.target.value });
   };
 
   const confirmAppointment = () => {
     console.log(state);
-    // axios
-    //   .get(
-    //     `http://localhost:5000/sendEmail?recipient=${state.email}&sender=${message.sender}&topic=${state.service}&text=${message.text}+ ${state.date}`
-    //   )
-    //   .then((data) => {
-    //     console.log("send");
-    //   });
     axios
       .post("http://localhost:5000/appointment", state)
       .then((response) => {
-        console.log(response);
+        console.log(response.data);
+        if (response.data.status === "success") {
+          axios
+            .get(
+              `http://localhost:5000/sendEmail?recipient=${state.email}&sender=${message.sender}&topic=${state.service}&text=${message.text}+ ${state.date}+${state.time}`
+            )
+            .then((data) => {
+              console.log("send");
+            });
+        }else if(response.data.status ==='error'){
+           user.dispatch({type: 'ERROR', payload: true})
+        }
       })
       .catch((error) => {
         console.log(error.response);
@@ -82,7 +85,7 @@ export default function RequestApp() {
 
   //to go to the main page
   const BackHome = () => {
-    user.dispatch({ type: "REQUEST_APPOINTMENT", payload: 'home' });
+    user.dispatch({ type: "REQUEST_APPOINTMENT", payload: "home" });
   };
 
   return (

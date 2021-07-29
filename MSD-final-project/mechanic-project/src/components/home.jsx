@@ -89,10 +89,10 @@ function Home() {
             }}
           >
             <h1 style={{ color: "#fff", padding: "1rem" }}>
-              WELCOME TO EFI MECHANIC
+              WELCOME TO FAIRFIELD MECHANIC
             </h1>
             <p style={{ color: "#fff", padding: "1rem" }}>
-              For technician known for thier work & thier Word choose Efi
+              For technician known for thier work & thier Word choose FAIRFIELD
               Mechanics
             </p>
           </Paper>
